@@ -73,11 +73,12 @@ These events provided visibility into process execution activity and parent-chil
 
 ![CMD Detection](screenshots/cmd-detection.png)
 
-### PowerShell Detection
-
-![PowerShell Detection](screenshots/powershell-detection.png)
-
 ### Notepad Execution Detection
 
 ![Notepad Detection](screenshots/notepad-detection.png)
 
+### PowerShell Execution Detection
+
+PowerShell activity identified through Sysmon Process Creation events. The investigation shows PowerShell spawning the `whoami.exe` process, providing visibility into command execution and parent-child process relationships.
+
+![PowerShell Detection](screenshots/powershell-detection.png)
