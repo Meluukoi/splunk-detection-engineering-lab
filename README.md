@@ -121,4 +121,6 @@ This visibility helps identify suspicious communications and potential command-a
 
 ### Network Connection Events
 
+Network connection activity captured through Sysmon Event ID 3. The investigation identified outbound connections, destination IP addresses, destination hostnames, destination ports, and the originating process.
+
 ![Network Connection](screenshots/network-connection.png)
