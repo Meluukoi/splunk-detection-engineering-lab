@@ -609,3 +609,55 @@ Outbound network activity identified through Sysmon Event ID 3. The investigatio
 
 ![Network Connection Investigation](screenshots/network-connection-analysis2.png)
 
+
+### Advanced Investigation
+
+# Investigation 5: Account Deletion Analysis
+
+## Related Detection
+
+Detection Scenario 8: Account Lifecycle Monitoring
+
+## Objective
+
+Investigate user account deletion activity using Windows Security Event ID 4726.
+
+## Detection Query
+
+```spl
+source="WinEventLog:Security"
+EventCode=4726
+```
+
+## Investigation
+
+User account deletion events were successfully collected and indexed into Splunk.
+
+The investigation identified:
+
+- Deleted user accounts
+- User performing the deletion
+- Security identifiers (SIDs)
+- Computer name
+- Audit success status
+
+Analysis of Event ID 4726 telemetry provided visibility into account lifecycle activity occurring on the endpoint.
+
+The investigation confirmed the deletion of the local account **labuser**, performed by the user **milad**. This demonstrates how Windows Security auditing records account removal events and associated user context.
+
+This visibility can assist analysts in identifying unauthorized account modifications, persistence removal attempts, and suspicious administrative activity.
+
+## MITRE ATT&CK Mapping
+
+| Technique | ID |
+|------------|------------|
+| Create Account | T1136 |
+| Local Account | T1136.001 |
+
+## Screenshots
+
+### Account Deletion Investigation
+
+User account deletion activity identified through Windows Security Event ID 4726. The investigation shows the local account **labuser** being removed, including the account responsible for the action and associated audit details.
+
+![Account Deletion Investigation](screenshots/account-deletion-investigation.png)
