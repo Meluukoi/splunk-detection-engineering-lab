@@ -82,3 +82,43 @@ These events provided visibility into process execution activity and parent-chil
 PowerShell activity identified through Sysmon Process Creation events. The investigation shows PowerShell spawning the `whoami.exe` process, providing visibility into command execution and parent-child process relationships.
 
 ![PowerShell Detection](screenshots/powershell-detection.png)
+
+
+# Detection Scenario 2: Network Connection Monitoring
+
+## Objective
+
+Detect and investigate outbound network connections using Sysmon Event ID 3.
+
+## Detection Query
+
+```spl
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
+"<EventID>3</EventID>"
+```
+
+## Investigation
+
+Network connection events were successfully collected and indexed into Splunk.
+
+Testing was performed by generating outbound network activity and reviewing Sysmon telemetry to identify:
+
+- Source IP addresses
+- Destination IP addresses
+- Destination ports
+- Associated processes
+
+This visibility helps identify suspicious communications and potential command-and-control activity.
+
+## MITRE ATT&CK Mapping
+
+| Technique | ID |
+|------------|------------|
+| Application Layer Protocol | T1071 |
+| Network Service Discovery | T1046 |
+
+## Screenshots
+
+### Network Connection Events
+
+![Network Connection](screenshots/network-connection.png)
