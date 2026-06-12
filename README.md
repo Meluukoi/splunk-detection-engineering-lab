@@ -209,6 +209,45 @@ Analysis of Event ID 4625 telemetry provided visibility into unsuccessful authen
 ![Failed Logon Investigation](screenshots/failed-logon-investigation.png)
 
 
+# Detection Scenario 5: Successful Logon Detection
+
+## Objective
+
+Detect successful authentication events using Windows Security Event ID 4624.
+
+## Detection Query
+
+```spl
+source="WinEventLog:Security"
+EventCode=4624
+```
+
+## Investigation
+
+Successful logon events were successfully collected and indexed into Splunk.
+
+The investigation identified:
+
+- Authenticated user accounts
+- Logon types
+- Authentication packages
+- Workstation information
+- Security identifiers (SIDs)
+
+Analysis of Event ID 4624 telemetry provided visibility into successful authentication activity and assisted with tracking user access across the environment.
+
+## MITRE ATT&CK Mapping
+
+| Technique | ID |
+|------------|------------|
+| Valid Accounts | T1078 |
+
+## Screenshots
+
+### Successful Logon Investigation
+
+![Successful Logon Investigation](screenshots/successful-logon-investigation.png)
+
 
 
 
