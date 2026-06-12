@@ -459,3 +459,52 @@ Successful authentication activity identified through Windows Security Event ID 
 
 ![Successful Logon Investigation](screenshots/successful-logon-investigation2.png)
 
+
+## Investigation 2: PowerShell Execution Analysis
+
+### Related Detection
+
+Detection Scenario 1: Process Creation Detection
+
+## Objective
+
+Investigate PowerShell execution activity and analyze parent-child process relationships using Sysmon Process Creation events.
+
+## Detection Query
+
+```spl
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
+whoami.exe
+```
+
+## Investigation
+
+PowerShell execution activity was successfully identified through Sysmon Process Creation events.
+
+The investigation identified:
+
+- PowerShell process execution
+- Child process creation
+- Command execution activity
+- Parent-child process relationships
+
+Analysis of Sysmon Event ID 1 telemetry showed PowerShell spawning the `whoami.exe` process.
+
+This behavior demonstrates how command execution activity can be traced through process creation events and provides visibility into user and attacker actions occurring on the endpoint.
+
+Monitoring parent-child process relationships can assist analysts in identifying suspicious PowerShell usage, attacker reconnaissance activity, and post-exploitation behavior.
+
+## MITRE ATT&CK Mapping
+
+| Technique | ID |
+|------------|------------|
+| Command and Scripting Interpreter: PowerShell | T1059.001 |
+| System Owner/User Discovery | T1033 |
+
+## Screenshots
+
+### PowerShell Execution Investigation
+
+PowerShell execution activity identified through Sysmon Process Creation events. The investigation shows PowerShell spawning the `whoami.exe` process, providing visibility into command execution and parent-child process relationships.
+
+![PowerShell Investigation](screenshots/powershell-investigation.png)
