@@ -404,3 +404,58 @@ This type of telemetry can assist analysts in identifying malicious PowerShell a
 ![PowerShell Execution Investigation](screenshots/powershell-execution-monitoring.png)
 
 
+# Advanced Investigations
+
+The following investigations build upon previously developed detections and demonstrate deeper threat hunting and incident analysis workflows using Splunk, Sysmon, and Windows Event Logs.
+
+---
+
+## Investigation 1: Successful Logon Analysis
+
+### Related Detection
+
+Detection Scenario 7: Successful Logon Monitoring
+
+## Objective
+
+Investigate successful authentication activity using Windows Security Event ID 4624 and identify user logon behavior occurring on the endpoint.
+
+## Detection Query
+
+```spl
+source="WinEventLog:Security"
+EventCode=4624
+```
+
+## Investigation
+
+Successful logon events were successfully collected and analyzed within Splunk.
+
+The investigation identified:
+
+- Authenticated user accounts
+- Interactive logon activity
+- Authentication packages
+- Source system information
+- Logon session details
+
+Analysis of Event ID 4624 telemetry provided visibility into successful user authentication activity occurring on the endpoint.
+
+The investigation confirmed a successful interactive logon (Logon Type 2), demonstrating how Windows records legitimate user access and associated authentication details.
+
+This visibility can assist analysts in identifying normal user behavior, unauthorized account usage, and potential lateral movement activity.
+
+## MITRE ATT&CK Mapping
+
+| Technique | ID |
+|------------|------------|
+| Valid Accounts | T1078 |
+
+## Screenshots
+
+### Successful Logon Investigation
+
+Successful authentication activity identified through Windows Security Event ID 4624. The investigation shows an interactive logon (Logon Type 2), authentication package information, and user account details associated with the successful login event.
+
+![Successful Logon Investigation](screenshots/successful-logon-investigation2.png)
+
