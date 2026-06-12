@@ -170,6 +170,47 @@ This visibility can assist with identifying suspicious domains, malware communic
 ![DNS Investigation](screenshots/dns-query-investigation.png)
 
 
+# Detection Scenario 4: Failed Logon Detection
+
+## Objective
+
+Detect failed authentication attempts using Windows Security Event ID 4625.
+
+## Detection Query
+
+```spl
+source="WinEventLog:Security"
+EventCode=4625
+```
+
+## Investigation
+
+Failed logon events were successfully collected and indexed into Splunk.
+
+The investigation identified:
+
+- Failed authentication attempts
+- Source workstation information
+- Logon types
+- Failure reasons and status codes
+
+Analysis of Event ID 4625 telemetry provided visibility into unsuccessful authentication activity and can assist in identifying password spraying and brute-force attacks.
+
+## MITRE ATT&CK Mapping
+
+| Technique | ID |
+|------------|------------|
+| Brute Force | T1110 |
+
+## Screenshots
+
+### Failed Logon Investigation
+
+![Failed Logon Investigation](screenshots/failed-logon-investigation.png)
+
+
+
+
 
 
 
