@@ -558,7 +558,7 @@ DNS query activity identified through Sysmon Event ID 22. The investigation show
 
 
 
-# Advanced Investigation 4: Network Connection Analysis
+# Investigation 4: Network Connection Analysis
 
 ## Related Detection
 
