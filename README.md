@@ -508,3 +508,5 @@ Monitoring parent-child process relationships can assist analysts in identifying
 PowerShell execution activity identified through Sysmon Process Creation events. The investigation shows PowerShell spawning the `whoami.exe` process, providing visibility into command execution and parent-child process relationships.
 
 ![PowerShell Investigation](screenshots/powershell-investigation2.png)
+
+
