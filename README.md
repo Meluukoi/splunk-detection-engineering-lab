@@ -555,3 +555,58 @@ This visibility enables analysts to investigate suspicious domain lookups, malwa
 DNS query activity identified through Sysmon Event ID 22. The investigation shows domain resolution requests and the originating process responsible for generating the DNS query.
 
 ![DNS Activity Investigation](screenshots/dns-activity-investigation2.png)
+
+
+### Advanced Investigation
+
+# Advanced Investigation 4: Network Connection Analysis
+
+## Related Detection
+
+Detection Scenario 2: Network Connection Monitoring
+
+## Objective
+
+Investigate outbound network connections using Sysmon Event ID 3 and correlate destination IP addresses, ports, and originating processes.
+
+## Detection Query
+
+```spl
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
+EventID=3
+```
+
+## Investigation
+
+Network connection events were successfully collected and indexed into Splunk using Sysmon Event ID 3.
+
+The investigation identified:
+
+- Source IP addresses
+- Destination IP addresses
+- Destination hostnames
+- Destination ports
+- Associated processes
+- User context
+
+Analysis of Event ID 3 telemetry provided visibility into outbound network activity occurring on the endpoint.
+
+The investigation confirmed Discord.exe initiated a network connection to DNS. Google (8.8.8.8) over destination port 53, demonstrating how Sysmon records process-level network communications.
+
+This visibility can assist analysts in identifying suspicious outbound connections, command-and-control activity, and unauthorized network communications.
+
+## MITRE ATT&CK Mapping
+
+| Technique | ID |
+|------------|------------|
+| Application Layer Protocol | T1071 |
+| Network Service Discovery | T1046 |
+
+## Screenshots
+
+### Network Connection Investigation
+
+Outbound network activity identified through Sysmon Event ID 3. The investigation shows Discord.exe communicating with dns.google (8.8.8.8) over destination port 53, providing visibility into process-level network connections and associated user context.
+
+![Network Connection Investigation](screenshots/network-connection-analysis2.png)
+
