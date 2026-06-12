@@ -403,3 +403,4 @@ This type of telemetry can assist analysts in identifying malicious PowerShell a
 
 ![PowerShell Execution Investigation](screenshots/powershell-execution-monitoring.png)
 
+
