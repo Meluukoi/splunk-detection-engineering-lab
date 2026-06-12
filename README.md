@@ -101,12 +101,15 @@ source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
 
 Network connection events were successfully collected and indexed into Splunk.
 
-Testing was performed by generating outbound network activity and reviewing Sysmon telemetry to identify:
+Testing was performed by generating outbound network activity using web browsing and DNS lookups. Sysmon Event ID 3 telemetry was reviewed to identify:
 
 - Source IP addresses
 - Destination IP addresses
 - Destination ports
+- Destination hostnames
 - Associated processes
+
+The investigation confirmed successful collection of network connection events and demonstrated visibility into process-level network activity.
 
 This visibility helps identify suspicious communications and potential command-and-control activity.
 
