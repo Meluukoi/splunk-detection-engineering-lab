@@ -328,6 +328,44 @@ Analysis of Event ID 4720 telemetry provides visibility into account creation ac
 ![New User Account Creation Investigation](screenshots/new-user-account-creation.png)
 
 
+# Detection Scenario 9: Security Group Membership Changes
 
+## Objective
+
+Detect user accounts being added to privileged security groups using Windows Security Event ID 4732.
+
+## Detection Query
+
+```spl
+source="WinEventLog:Security"
+EventCode=4732
+```
+
+## Investigation
+
+Security group membership modification events were successfully collected and indexed into Splunk.
+
+The investigation identified:
+
+- User accounts added to privileged groups
+- Group names and associated permissions
+- Security identifiers (SIDs)
+- Account modification activity
+
+Analysis of Event ID 4732 telemetry provides visibility into privilege escalation attempts and unauthorized account modifications.
+
+The investigation confirmed that the user account **labuser** was added to the local **Administrators** group.
+
+## MITRE ATT&CK Mapping
+
+| Technique | ID |
+|------------|------------|
+| Account Manipulation | T1098 |
+
+## Screenshots
+
+### Security Group Membership Change Investigation
+
+![Security Group Membership Change Investigation](screenshots/security-group-membership-change.png)
 
 
