@@ -249,6 +249,47 @@ Analysis of Event ID 4624 telemetry provided visibility into successful authenti
 ![Successful Logon Investigation](screenshots/successful-logon-investigation.png)
 
 
+# Detection Scenario 6: Encoded PowerShell Detection
+
+## Objective
+
+Detect PowerShell commands executed with encoded payloads using Sysmon Event ID 1.
+
+## Detection Query
+
+```spl
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
+"-enc"
+```
+
+## Investigation
+
+Encoded PowerShell activity was successfully detected through Sysmon Process Creation events.
+
+The investigation identified:
+
+- PowerShell execution
+- Encoded command-line arguments
+- Parent-child process relationships
+- User execution context
+
+Analysis of encoded PowerShell activity provides visibility into a technique frequently used by attackers to obfuscate commands and evade detection.
+
+## MITRE ATT&CK Mapping
+
+| Technique | ID |
+|------------|------------|
+| PowerShell | T1059.001 |
+| Obfuscated Files or Information | T1027 |
+
+## Screenshots
+
+### Encoded PowerShell Detection
+
+![Encoded PowerShell Detection](screenshots/encoded-powershell-detection.png)
+
+
+
 
 
 
