@@ -369,3 +369,37 @@ The investigation confirmed that the user account **labuser** was added to the l
 ![Security Group Membership Change Investigation](screenshots/security-group-membership-change.png)
 
 
+# Detection Scenario 10: PowerShell Execution Monitoring
+
+## Objective
+
+Detect and investigate PowerShell execution activity using Sysmon Process Creation events.
+
+## Detection Query
+
+```spl
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
+powershell.exe
+```
+
+### PowerShell Execution Detection
+
+PowerShell activity was identified through Sysmon Process Creation events (Event ID 1).
+
+The investigation showed PowerShell spawning the `whoami.exe` process, providing visibility into command execution and parent-child process relationships.
+
+This type of telemetry can assist analysts in identifying malicious PowerShell activity, post-exploitation behavior, and attacker reconnaissance techniques.
+
+## MITRE ATT&CK Mapping
+
+| Technique | ID |
+|------------|------------|
+| PowerShell | T1059.001 |
+| Command and Scripting Interpreter | T1059 |
+
+## Screenshots
+
+### PowerShell Execution Investigation
+
+![PowerShell Execution Investigation](screenshots/powershell-execution-monitoring.png)
+
