@@ -289,7 +289,43 @@ Analysis of encoded PowerShell activity provides visibility into a technique fre
 ![Encoded PowerShell Detection](screenshots/encoded-powershell-detection.png)
 
 
+# Detection Scenario 8: New User Account Creation Detection
 
+## Objective
+
+Detect newly created user accounts using Windows Security Event ID 4720.
+
+## Detection Query
+
+```spl
+source="WinEventLog:Security"
+EventCode=4720
+```
+
+## Investigation
+
+User account creation events were successfully collected and indexed into Splunk.
+
+The investigation identified:
+
+- Newly created user accounts
+- Security identifiers (SIDs)
+- Account creation timestamps
+- Associated system information
+
+Analysis of Event ID 4720 telemetry provides visibility into account creation activity and can assist in identifying unauthorized persistence mechanisms.
+
+## MITRE ATT&CK Mapping
+
+| Technique | ID |
+|------------|------------|
+| Create Account | T1136 |
+
+## Screenshots
+
+### New User Account Creation Investigation
+
+![New User Account Creation Investigation](screenshots/new-user-account-creation.png)
 
 
 
